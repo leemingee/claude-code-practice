@@ -2,6 +2,30 @@
 
 My practice repository for the Intelligent Workflow System - a checkpoint-based workflow system for AI-assisted development with natural language support and confidence-based gating.
 
+## Installation
+
+### New Machine Setup
+
+```bash
+# 1. Clone this repo
+git clone https://github.com/leemingee/claude-code-practice.git
+cd claude-code-practice
+
+# 2. Run the installer
+./install.sh
+```
+
+This installs:
+- Workflow commands to `~/.claude/commands/workflows/`
+- Skills to `~/.claude/skills/`
+- Workflow infrastructure to `~/.claude/workflows/`
+
+### Uninstall
+
+```bash
+./uninstall.sh
+```
+
 ## Quick Start
 
 ```bash
@@ -72,23 +96,35 @@ Unlike traditional DAG workflows, this system supports deep cycles - you can jum
 
 ```
 claude-code-practice/
+├── install.sh              # Run this on new machines
+├── uninstall.sh            # Remove the system
 ├── .claude/
 │   ├── CLAUDE.md           # Workflow system instructions
 │   └── agents/             # Domain-specific code reviewers
-│       ├── failure-classifier.md
-│       ├── ios/code-reviewer.md
-│       ├── android/code-reviewer.md
-│       ├── backend/code-reviewer.md
-│       └── infra/security-reviewer.md
+├── setup/                  # Global components (installed by install.sh)
+│   ├── commands/workflows/ # Workflow slash commands
+│   ├── skills/             # Workflow skills
+│   └── workflows/          # Registry templates
 ├── docs/                   # Documentation
 ├── examples/TEST-001/      # Working workflow example
 ├── templates/              # Document templates
 └── features/               # Active workflow documents
 ```
 
-## Global Components
+## After Installation
 
-This repo works with global commands at `~/.claude/commands/workflows/`. See [Bootstrap Guide](docs/BOOTSTRAP.md) for setup.
+Once installed, these are available globally:
+
+```
+~/.claude/
+├── commands/workflows/     # /workflows:* commands
+├── skills/                 # Autonomous skills
+└── workflows/              # Registry & analytics
+    ├── registry.md         # Your workflow history
+    ├── PLAYBOOK.md         # User guide
+    ├── projects/           # Project stats
+    └── sessions/           # Session logs
+```
 
 ## License
 
